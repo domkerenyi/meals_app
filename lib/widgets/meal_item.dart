@@ -37,12 +37,15 @@ class MealItem extends StatelessWidget {
         child: Stack(
           // Stack is a widget that allows you to place widgets on top of each other. We can set image as background and have Text on it
           children: [
-            FadeInImage(
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-              fit: BoxFit.cover, // we want the image to cover the whole card and not be stretched
-              height: 200, // we want the image to have a fixed height
-              width: double.infinity, // we want the image to take the full width of the card
+            Hero(
+              tag: meal.id, // unique per Widget tag
+              child: FadeInImage(
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
+                fit: BoxFit.cover, // we want the image to cover the whole card and not be stretched
+                height: 200, // we want the image to have a fixed height
+                width: double.infinity, // we want the image to take the full width of the card
+              ),
             ),
             Positioned(
               bottom: 0, // it starts at the bottom of the card
